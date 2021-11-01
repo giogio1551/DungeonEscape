@@ -608,7 +608,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Player movement:  \n\t\t\t\t\t\t\tw,a,s,d or arrow keys\n\nCursor movement: 
-    \n\t\t\t\t\t\t\tw,a,s,d or arrow\n\nCursor selection:  \n\t\t\t\t\t\t\tspace"
+    \n\t\t\t\t\t\t\tw,a,s,d or arrow keys\n\nCursor selection:  \n\t\t\t\t\t\t\tspace"
 --- !u!222 &1335727062
 CanvasRenderer:
   m_ObjectHideFlags: 0
