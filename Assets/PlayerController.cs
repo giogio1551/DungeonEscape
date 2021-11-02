@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController self;
     [Range(0, .3f)] [SerializeField] private float movementSmoothing = .05f;
 
     private Rigidbody2D rb;
@@ -23,6 +24,10 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         canMove = true;
+        if (self == null)
+        {
+            self = this;
+        }
     }
 
     // Update is called once per frame
