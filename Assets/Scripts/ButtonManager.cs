@@ -27,6 +27,24 @@ public class ButtonManager : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenuScene");
     }
+    public void CloseQuestion() 
+    {
+        GameObject.Find("Question").transform.GetChild(0).gameObject.SetActive(false);
+        GameObject.Find("InputManager").GetComponent<InputManager>().SwitchIsPlayer(true);
+    }
+    public void OpenPauseMenu()
+    {
+        if (GameObject.Find("Question"))
+            CloseQuestion();
+        GameObject.Find("PauseMenu").transform.GetChild(0).gameObject.SetActive(true);
+        GameObject.Find("InputManager").GetComponent<InputManager>().SwitchIsPlayer(false);
+        GameObject.Find("InputManager").GetComponent<InputManager>().DisplayHighlight();
+    }
+    public void ClosePauseMenu()
+    {
+        GameObject.Find("PauseMenu").transform.GetChild(0).gameObject.SetActive(false);
+        GameObject.Find("InputManager").GetComponent<InputManager>().SwitchIsPlayer(true);
+    }
     public void QuitGame()
     {
         Application.Quit();

@@ -1,4 +1,4 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,24 +7,35 @@ public class InputManager : MonoBehaviour
 {
     private GameObject[] effectedButtons;
     public int someIndex;
+    public bool isPlayer;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (GameObject.Find("Player"))
+            isPlayer = true;
+        else
+            isPlayer = false;
         someIndex = 0;
-        effectedButtons = GameObject.FindGameObjectsWithTag("EffectedButton");
-        ChangeButtonEffected(true);
+        if (!isPlayer)
+            DisplayHighlight();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("up") || Input.GetKeyDown("w"))
-            SelectButton(someIndex - 1);
-        else if (Input.GetKeyDown("down") || Input.GetKeyDown("s"))
-            SelectButton(someIndex + 1);
-        if (Input.GetKeyDown("space"))
-            PressButton();
+        if (Input.GetKeyDown(KeyCode.Escape))
+            GameObject.Find("ButtonManager").GetComponent<ButtonManager>().OpenPauseMenu();
+
+        if (!isPlayer)
+        {
+            if (Input.GetKeyDown("up") || Input.GetKeyDown("w"))
+                SelectButton(someIndex - 1);
+            else if (Input.GetKeyDown("down") || Input.GetKeyDown("s"))
+                SelectButton(someIndex + 1);
+            if (Input.GetKeyDown("space"))
+                PressButton();
+        }
     }
     private void SelectButton(int index) 
     {
@@ -48,5 +59,13 @@ public class InputManager : MonoBehaviour
     private void PressButton() {
         effectedButtons[someIndex].transform.GetChild(1).gameObject.GetComponent<Button>().onClick.Invoke();
     }
-
+    public void SwitchIsPlayer(bool b) {
+        isPlayer = b;
+        GameObject.Find("Player").GetComponent<PlayerController>().ToggleMovement();
+        
+    }
+    public void DisplayHighlight() {
+        effectedButtons = GameObject.FindGameObjectsWithTag("EffectedButton");
+        ChangeButtonEffected(true);
+    }
 }
