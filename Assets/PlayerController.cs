@@ -34,11 +34,16 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //input from arrow keys and WASD
-        direction.x = Input.GetAxisRaw("Horizontal");
-        direction.y = Input.GetAxisRaw("Vertical");
-        direction = direction.normalized;
+
         if (canMove)
         {
+            direction.x = Input.GetAxisRaw("Horizontal");
+            if(direction.x > 0)
+                transform.localScale = new Vector3(direction.x, transform.localScale.y, transform.localScale.z);
+            else if (direction.x < 0)
+                transform.localScale = new Vector3(direction.x, transform.localScale.y, transform.localScale.z);
+            direction.y = Input.GetAxisRaw("Vertical");
+            direction = direction.normalized;
             Move(direction * speed);
         }
 
