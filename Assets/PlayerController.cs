@@ -63,4 +63,11 @@ public class PlayerController : MonoBehaviour
     {
         canMove = !canMove;
     }
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+        if (collision.gameObject.tag == "Enemy"){
+            print("HI");
+        }
+
+	}
 }
