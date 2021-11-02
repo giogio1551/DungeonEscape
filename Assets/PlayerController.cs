@@ -63,4 +63,14 @@ public class PlayerController : MonoBehaviour
     {
         canMove = !canMove;
     }
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+        if (collision.gameObject.tag == "Enemy"){
+            GameObject.Find("Question").transform.GetChild(0).gameObject.SetActive(true);
+            GameObject.Find("InputManager").GetComponent<InputManager>().SwitchIsPlayer(false);
+            GameObject.Find("InputManager").GetComponent<InputManager>().DisplayHighlight();
+
+        }
+	}
+   
 }
