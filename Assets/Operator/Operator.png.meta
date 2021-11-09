@@ -4,7 +4,7 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 1595507120743549161
-    second: Operator_10
+    second: Operator_2
   - first:
       213: -8995524605701496183
     second: Operator_12
@@ -17,6 +17,36 @@ TextureImporter:
   - first:
       213: 8490772749794519922
     second: Operator_15
+  - first:
+      213: -445808867132995673
+    second: Operator_1
+  - first:
+      213: -7136188491172858997
+    second: Operator_2
+  - first:
+      213: -8314486778853371117
+    second: Operator_3
+  - first:
+      213: 427261453866320354
+    second: Operator_4
+  - first:
+      213: -6653260597907413094
+    second: Operator_5
+  - first:
+      213: 6683288676256453440
+    second: Operator_6
+  - first:
+      213: 8111960692531966319
+    second: Operator_7
+  - first:
+      213: -3829073218121523371
+    second: Operator_8
+  - first:
+      213: 5683973291577345766
+    second: Operator_9
+  - first:
+      213: -4845517537853753727
+    second: Operator_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -106,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Operator_10
+      name: Operator_11
       rect:
         serializedVersion: 2
         x: 777
@@ -206,6 +236,216 @@ TextureImporter:
       bones: []
       spriteID: 27ba11474d845d570800000000000000
       internalID: 8490772749794519922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Operator_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 983
+        width: 213
+        height: 241
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a781d4823b20d9f0800000000000000
+      internalID: -445808867132995673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Operator_2
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 983
+        width: 217
+        height: 244
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b83396d506a27fc90800000000000000
+      internalID: -7136188491172858997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Operator_3
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 986
+        width: 216
+        height: 241
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31353c0a3520d9c80800000000000000
+      internalID: -8314486778853371117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Operator_4
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 985
+        width: 215
+        height: 245
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e14bef4700fde500800000000000000
+      internalID: 427261453866320354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Operator_5
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 988
+        width: 212
+        height: 237
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9720a79cbedaa3a0800000000000000
+      internalID: -6653260597907413094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Operator_6
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 648
+        width: 213
+        height: 241
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04318a734afcfbc50800000000000000
+      internalID: 6683288676256453440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Operator_7
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 648
+        width: 214
+        height: 242
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f61bc465549739070800000000000000
+      internalID: 8111960692531966319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Operator_8
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 649
+        width: 219
+        height: 241
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55f97e602366cdac0800000000000000
+      internalID: -3829073218121523371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Operator_9
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 648
+        width: 213
+        height: 241
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e6864df79781ee40800000000000000
+      internalID: 5683973291577345766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Operator_0
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 653
+        width: 216
+        height: 237
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1863d43d87341ccb0800000000000000
+      internalID: -4845517537853753727
       vertices: []
       indices: 
       edges: []

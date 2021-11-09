@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class InputManager : MonoBehaviour
 {
-    private GameObject[] effectedButtons;
+    public GameObject[] effectedButtons;
     public int someIndex;
     public bool isPlayer;
 
