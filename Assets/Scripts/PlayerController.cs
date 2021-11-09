@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
     public void CollectOperator(Operators op)
     {
         operatorInventory.Add(op);
-        inventory.GetComponent<Inventory>().UpdateInventory(operatorInventory);
+        inventory.GetComponent<Inventory>().AddOperator(op);
 
     }
 
