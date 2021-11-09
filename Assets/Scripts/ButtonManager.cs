@@ -49,4 +49,13 @@ public class ButtonManager : MonoBehaviour
     {
         Application.Quit();
     }
+    public void OpenInventory()
+    {
+        GameObject.Find("InputManager").GetComponent<InputManager>().DisplayHighlight();
+    }
+
+    public void AnswerQuestion()
+    {
+        GameObject.Find("Question").GetComponent<QuestionController>().AnswerCorrect();
+    }
 }
