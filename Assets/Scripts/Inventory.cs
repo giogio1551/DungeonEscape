@@ -23,11 +23,11 @@ public class Inventory : MonoBehaviour
         switch (op)
         {
             case Operators.Minus:
-                operatorDisplay.Add(Instantiate(minus, new Vector3(displacement.x, displacement.y, 0), Quaternion.identity, transform));
+                operatorDisplay.Add(Instantiate(minus, new Vector3(displacement.x, displacement.y, 0), Quaternion.identity, this.gameObject.transform));
                 displacement.y -= displacementDifference;
                 break;
             case Operators.Plus:
-                operatorDisplay.Add(Instantiate(plus, new Vector3(displacement.x, displacement.y, 0), Quaternion.identity, transform));
+                operatorDisplay.Add(Instantiate(plus, new Vector3(displacement.x, displacement.y, 0), Quaternion.identity, this.gameObject.transform));
                 displacement.y -= displacementDifference;
                 break;
         }
