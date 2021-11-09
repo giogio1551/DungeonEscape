@@ -6,24 +6,30 @@ using UnityEngine.UI;
 public class ButtonEffect : MonoBehaviour
 {
     public bool isSelected;
+    public bool isLocked;
     public Color thisColor;
     public bool rightDirection = false;
-    public float increment = 0.01f;
+    public float increment = 0.0017f;
     // Start is called before the first frame update
 
     void Awake()
     {
         thisColor = GetComponent<Image>().color;
         SetSelected(false);
+        SetLocked(false);
+        increment = 0.0051f;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (isSelected)
+        if (!isLocked)
         {
-            ChangeAlpha();
+            if (isSelected)
+            {
+                ChangeAlpha();
+            }
         }
     }
     private void ChangeAlpha() {
@@ -47,9 +53,31 @@ public class ButtonEffect : MonoBehaviour
     public void SetSelected(bool b)
     {
         isSelected = b;
-        if (isSelected)
+        if (!isLocked)
+        {
+            if (isSelected)
+                GetComponent<Image>().color = new Color(thisColor.r, thisColor.g, thisColor.b, 1f);
+            else
+                GetComponent<Image>().color = new Color(thisColor.r, thisColor.g, thisColor.b, 0f);
+        }
+    }
+    public void SetLocked(bool b)
+    {
+        isLocked = b;
+        if (isLocked)
             GetComponent<Image>().color = new Color(thisColor.r, thisColor.g, thisColor.b, 1f);
         else
             GetComponent<Image>().color = new Color(thisColor.r, thisColor.g, thisColor.b, 0f);
+    }
+    public void SwitchLock()
+    {
+        if (isLocked)
+        {
+            SetLocked(false);
+        }
+        else
+        {
+            SetLocked(true);
+        }
     }
 }
