@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Operators
+{
+    Minus,
+    Plus
+}
+
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController self;
@@ -18,6 +24,10 @@ public class PlayerController : MonoBehaviour
     private Vector2 direction;
 
     private bool canMove;
+
+    private List<Operators> operatorInventory = new List<Operators>();
+
+    public GameObject inventory;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +48,7 @@ public class PlayerController : MonoBehaviour
         if (canMove)
         {
             direction.x = Input.GetAxisRaw("Horizontal");
-            if(direction.x > 0)
+            if (direction.x > 0)
                 transform.localScale = new Vector3(direction.x, transform.localScale.y, transform.localScale.z);
             else if (direction.x < 0)
                 transform.localScale = new Vector3(direction.x, transform.localScale.y, transform.localScale.z);
@@ -68,14 +78,22 @@ public class PlayerController : MonoBehaviour
     {
         canMove = !canMove;
     }
-	private void OnCollisionEnter2D(Collision2D collision)
-	{
-        if (collision.gameObject.tag == "Enemy"){
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
             GameObject.Find("Question").transform.GetChild(0).gameObject.SetActive(true);
             GameObject.Find("InputManager").GetComponent<InputManager>().SwitchIsPlayer(false);
             GameObject.Find("InputManager").GetComponent<InputManager>().DisplayHighlight();
 
         }
-	}
-   
+    }
+
+    public void CollectOperator(Operators op)
+    {
+        operatorInventory.Add(op);
+        inventory.GetComponent<Inventory>().UpdateInventory(operatorInventory);
+
+    }
+
 }

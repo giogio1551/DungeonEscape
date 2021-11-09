@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSmoothing: 0.05
   speed: 10
+  inventory: {fileID: 7009554327378671250, guid: 295a2a4f92d74cc42884d635eda59c90, type: 3}
 --- !u!50 &1323265909810493623
 Rigidbody2D:
   serializedVersion: 4
