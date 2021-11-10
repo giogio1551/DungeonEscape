@@ -26,9 +26,9 @@ public class Timer : MonoBehaviour
             time -= Time.deltaTime;
             countdowntime.text = time.ToString("F0");
         }
-       // else
-       // {
-       //     SceneManager.LoadScene("");
-       // }
+        else
+        {
+            SceneManager.LoadScene("GameOver");
+        }
     }
 }
