@@ -8345,7 +8345,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 21
-      m_TileSpriteIndex: 24
+      m_TileSpriteIndex: 25
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -8715,7 +8715,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 20
-      m_TileSpriteIndex: 23
+      m_TileSpriteIndex: 24
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -8725,7 +8725,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 17
-      m_TileSpriteIndex: 22
+      m_TileSpriteIndex: 23
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -9022,14 +9022,14 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -2232551093196777029, guid: 54e8c6c1a809b7d4d9ca25203430ef66, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 590356392098470429, guid: 54e8c6c1a809b7d4d9ca25203430ef66, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 331408679044879952, guid: 54e8c6c1a809b7d4d9ca25203430ef66, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 14
     m_Data: {fileID: -436003073517554263, guid: 54e8c6c1a809b7d4d9ca25203430ef66, type: 3}
   - m_RefCount: 13
@@ -22687,12 +22687,20 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8414669171566153484, guid: 0388ca43e46d8fd43a2629f4f4aaeb14, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6123126
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414669171566153484, guid: 0388ca43e46d8fd43a2629f4f4aaeb14, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6060727
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414669171566153484, guid: 0388ca43e46d8fd43a2629f4f4aaeb14, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.87
+      value: -3.53
       objectReference: {fileID: 0}
     - target: {fileID: 8414669171566153484, guid: 0388ca43e46d8fd43a2629f4f4aaeb14, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.85
+      value: 9.52
       objectReference: {fileID: 0}
     - target: {fileID: 8414669171566153484, guid: 0388ca43e46d8fd43a2629f4f4aaeb14, type: 3}
       propertyPath: m_LocalPosition.z
