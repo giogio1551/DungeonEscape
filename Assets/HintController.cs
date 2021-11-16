@@ -52,7 +52,8 @@ public class HintController : MonoBehaviour
             {
                 g.SetActive(false);
             }
-            words.text = "Congradulation! You did it right!\nHere is the hint!\n"+ sage.hint;
+            words.text = "Congradulation! \nYou did it right!\nHere is the hint!\n"+ sage.hint;
+            words.color = Color.red;
             question.text = "";
             GameObject.Find("InputManager").GetComponent<InputManager>().int_layer = 6;
             GameObject.Find("InputManager").GetComponent<InputManager>().someIndex = 0;
@@ -65,6 +66,7 @@ public class HintController : MonoBehaviour
     public void CloseHint()
     {
         words.text = "i will leave you a hint if you can do my math problem right";
+        words.color = Color.black;
         foreach (GameObject g in Buttons)
         {
             g.transform.GetChild(0).gameObject.GetComponent<ButtonEffect>().SetSelected(false);
