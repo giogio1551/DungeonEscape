@@ -29,6 +29,10 @@ public class PlayerController : MonoBehaviour
 
     public GameObject inventory;
 
+    bool isMoving = false;
+
+    AudioSource audioSrc;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +42,8 @@ public class PlayerController : MonoBehaviour
         {
             self = this;
         }
+
+        audioSrc = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -56,6 +62,19 @@ public class PlayerController : MonoBehaviour
             direction = direction.normalized;
             Move(direction * speed);
         }
+
+        if (rb.velocity != Vector2.zero)
+            isMoving = true;
+        else
+            isMoving = false;
+
+        if (isMoving)
+        {
+            if (!audioSrc.isPlaying)
+            audioSrc.Play();
+        }
+        else
+            audioSrc.Stop();
 
     }
 
