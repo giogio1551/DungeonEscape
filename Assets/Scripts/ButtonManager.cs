@@ -32,6 +32,10 @@ public class ButtonManager : MonoBehaviour
         GameObject.Find("Question").transform.GetChild(0).gameObject.SetActive(false);
         GameObject.Find("InputManager").GetComponent<InputManager>().SwitchIsPlayer(true);
     }
+    public void CloseHint()
+    {
+        GameObject.Find("Hint").GetComponent<HintController>().CloseHint();
+    }
     public void OpenPauseMenu()
     {
         if (GameObject.Find("Question"))
@@ -57,5 +61,9 @@ public class ButtonManager : MonoBehaviour
     public void AnswerQuestion()
     {
         GameObject.Find("Question").GetComponent<QuestionController>().AnswerCorrect();
+    }
+    public void AnswerHint()
+    {
+        GameObject.Find("Hint").GetComponent<HintController>().AnswerCorrect();
     }
 }

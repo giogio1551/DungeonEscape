@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EffectedButton
   - Enemy
+  - Sage
   layers:
   - Default
   - TransparentFX
