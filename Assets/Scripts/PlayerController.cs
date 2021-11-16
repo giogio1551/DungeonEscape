@@ -32,10 +32,12 @@ public class PlayerController : MonoBehaviour
     bool isMoving = false;
 
     AudioSource audioSrc;
+    private Animator thisAnim;
 
     // Start is called before the first frame update
     void Start()
     {
+        thisAnim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         canMove = true;
         if (self == null)
@@ -71,10 +73,14 @@ public class PlayerController : MonoBehaviour
         if (isMoving)
         {
             if (!audioSrc.isPlaying)
-            audioSrc.Play();
+                audioSrc.Play();
+            thisAnim.SetBool("IsWalk", true);
         }
         else
+        {
+            thisAnim.SetBool("IsWalk", false);
             audioSrc.Stop();
+        }
 
     }
 
@@ -104,7 +110,14 @@ public class PlayerController : MonoBehaviour
             GameObject.Find("Question").transform.GetChild(0).gameObject.SetActive(true);
             GameObject.Find("InputManager").GetComponent<InputManager>().SwitchIsPlayer(false);
             GameObject.Find("InputManager").GetComponent<InputManager>().DisplayHighlight();
-
+        }
+        else if (collision.gameObject.tag == "Sage")
+        {
+            GameObject.Find("Hint").transform.GetChild(0).gameObject.SetActive(true);
+            GameObject.Find("Hint").GetComponent<HintController>().Display(collision.gameObject);
+            GameObject.Find("InputManager").GetComponent<InputManager>().SwitchIsPlayer(false);
+            GameObject.Find("InputManager").GetComponent<InputManager>().DisplayHighlight();
+            Debug.Log("Sage!");
         }
     }
 

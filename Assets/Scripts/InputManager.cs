@@ -119,8 +119,6 @@ public class InputManager : MonoBehaviour
         GameObject.Find("Player").GetComponent<PlayerController>().ToggleMovement();
         if (isPlayer) { int_layer = 0; }
         if (!isPlayer) { int_layer = 6; }
-
-
     }
     public void DisplayHighlight()
     {
@@ -159,5 +157,9 @@ public class InputManager : MonoBehaviour
                 g.transform.GetChild(0).gameObject.GetComponent<ButtonEffect>().SetLocked(false);
             }
         }
+    }
+
+    public string GetButtonName() {
+        return effectedButtons[someIndex].name;
     }
 }
