@@ -98,7 +98,7 @@ public class EnemyPatrol : MonoBehaviour
         {
             return false;
         }
-        if (movingDown && transform.position.y > endPosition.x)
+        if (movingDown && transform.position.y > endPosition.y)
         {
             return false;
         }
