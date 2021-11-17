@@ -125,6 +125,7 @@ public class EnemyPatrol : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             Timer.instance.Penalty(5f);
+            Destroy(this.gameObject);
         }
     }
 }

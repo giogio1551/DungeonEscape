@@ -61367,7 +61367,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3861972897218468955, guid: 5811d534102224140b5744db6ff4a85f, type: 3}
       propertyPath: question
-      value: 15 * 6 = ?
+      value: 15 x 6 = ?
       objectReference: {fileID: 0}
     - target: {fileID: 3861972897218468955, guid: 5811d534102224140b5744db6ff4a85f, type: 3}
       propertyPath: correct_answer
