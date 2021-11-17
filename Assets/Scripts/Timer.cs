@@ -9,13 +9,21 @@ public class Timer : MonoBehaviour
     [SerializeField] private float time;
     private Text countdowntime;
 
+    public static Timer instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         countdowntime = gameObject.GetComponent<Text>();
         countdowntime.text = time.ToString("F0");
-        
-
     }
 
     // Update is called once per frame
@@ -30,5 +38,10 @@ public class Timer : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
         }
+    }
+
+    public void Penalty(float penalty)
+    {
+        time -= penalty;
     }
 }

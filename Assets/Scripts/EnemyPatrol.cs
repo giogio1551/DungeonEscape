@@ -118,4 +118,13 @@ public class EnemyPatrol : MonoBehaviour
         movingDown = !movingDown;
         movingRight = !movingRight;
     }
+
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            Timer.instance.Penalty(5f);
+        }
+    }
 }
