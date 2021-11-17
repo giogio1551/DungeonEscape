@@ -55,9 +55,7 @@ public class HintController : MonoBehaviour
             words.text = "Congradulation! \nYou did it right!\nHere is the hint!\n"+ sage.hint;
             words.color = Color.red;
             question.text = "";
-            GameObject.Find("InputManager").GetComponent<InputManager>().int_layer = 6;
-            GameObject.Find("InputManager").GetComponent<InputManager>().someIndex = 0;
-            GameObject.Find("InputManager").GetComponent<InputManager>().DisplayHighlight();
+            Timer.instance.Reward(-10);
         }
         else {
             CloseHint();
@@ -78,6 +76,7 @@ public class HintController : MonoBehaviour
         {
             Destroy(sage_go);
         }
+        answered = false;
 
     }
 }

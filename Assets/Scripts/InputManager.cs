@@ -71,46 +71,54 @@ public class InputManager : MonoBehaviour
     {
         effectedButtons[someIndex].transform.GetChild(1).gameObject.GetComponent<Button>().onClick.Invoke();
         effectedButtons[someIndex].transform.GetChild(0).gameObject.GetComponent<ButtonEffect>().SwitchLock();
-        if (effectedButtons[someIndex].transform.GetChild(0).gameObject.GetComponent<ButtonEffect>().isLocked)
+        if (GameObject.Find("Hint").GetComponent<HintController>().answered) 
         {
-            GameObject g = locked;
-            locked = effectedButtons[someIndex];
-            if ((locked.layer == 6 || locked.layer == 7) && locked.name != "Confirm")
-            {
-                if (int_layer == 7)
-                {
-                    int_layer = 6;
-                    Image image = effectedButtons[someIndex].transform.GetChild(1).GetChild(0).GetChild(0).gameObject.GetComponent<Image>();
-                    if (g.layer == 6)
-                    {
-                        g.transform.GetChild(1).GetChild(1).GetComponent<Image>().sprite = image.sprite;
-                    }
-                    UnlockLayer();
-                    DisplayHighlight();
-                }
-                else
-                {
-                    int_layer = 7;
-                    UnlockLayer();
-                    DisplayHighlight();
-                }
-            }
+            someIndex = 0;
+            DisplayHighlight();
         }
         else
         {
-            if (locked.layer == 6 || locked.layer == 7)
+            if (effectedButtons[someIndex].transform.GetChild(0).gameObject.GetComponent<ButtonEffect>().isLocked)
             {
-                if (int_layer == 7)
+                GameObject g = locked;
+                locked = effectedButtons[someIndex];
+                if ((locked.layer == 6 || locked.layer == 7) && locked.name != "Confirm")
                 {
-                    int_layer = 6;
-                    DisplayHighlight();
-                }
-                else
-                {
-                    int_layer = 7;
+                    if (int_layer == 7)
+                    {
+                        int_layer = 6;
+                        Image image = effectedButtons[someIndex].transform.GetChild(1).GetChild(0).GetChild(0).gameObject.GetComponent<Image>();
+                        if (g.layer == 6)
+                        {
+                            g.transform.GetChild(1).GetChild(1).GetComponent<Image>().sprite = image.sprite;
+                        }
+                        UnlockLayer();
+                        DisplayHighlight();
+                    }
+                    else
+                    {
+                        int_layer = 7;
+                        UnlockLayer();
+                        DisplayHighlight();
+                    }
                 }
             }
-            locked = null;
+            else
+            {
+                if (locked.layer == 6 || locked.layer == 7)
+                {
+                    if (int_layer == 7)
+                    {
+                        int_layer = 6;
+                        DisplayHighlight();
+                    }
+                    else
+                    {
+                        int_layer = 7;
+                    }
+                }
+                locked = null;
+            }
         }
     }
     public void SwitchIsPlayer(bool b)

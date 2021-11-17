@@ -5,7 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour
 {
-
+    public AudioClip healClip;
+    public AudioClip hurtClip;
+    AudioSource audioSrc;
     [SerializeField] private float time;
     private Text countdowntime;
 
@@ -22,6 +24,7 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSrc = GetComponent<AudioSource>();
         countdowntime = gameObject.GetComponent<Text>();
         countdowntime.text = time.ToString("F0");
     }
@@ -38,10 +41,29 @@ public class Timer : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
         }
+
+
     }
 
     public void Penalty(float penalty)
     {
         time -= penalty;
+        audioSrc.clip = hurtClip;
+        StartCoroutine(WaitAndColorBack(1.0f,Color.red));
+    }
+    IEnumerator WaitAndColorBack(float waitTime,Color c)
+    {
+        audioSrc.Play();
+        countdowntime.color = c;
+        yield return new WaitForSeconds(waitTime);
+        countdowntime.color = Color.white;
+        audioSrc.Stop();
+    }
+    public void Reward(float penalty)
+    {
+
+        time -= penalty;
+        audioSrc.clip = healClip;
+        StartCoroutine(WaitAndColorBack(1.0f,Color.green));
     }
 }
