@@ -10,7 +10,7 @@ public class InputManager : MonoBehaviour
     public int someIndex;
     public bool isPlayer;
     public int int_layer;
-
+    AudioSource buttonSelectSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +22,7 @@ public class InputManager : MonoBehaviour
         someIndex = 0;
         if (!isPlayer)
             DisplayHighlight();
+        buttonSelectSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -61,7 +62,7 @@ public class InputManager : MonoBehaviour
             SelectButton(direction);
         }
         ChangeButtonEffected(true);
-
+        buttonSelectSound.Play();
     }
     private void ChangeButtonEffected(bool open)
     {

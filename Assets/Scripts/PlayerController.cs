@@ -31,7 +31,9 @@ public class PlayerController : MonoBehaviour
 
     bool isMoving = false;
 
-    AudioSource audioSrc;
+    AudioSource footStep;
+    [SerializeField] AudioSource pickupItem;
+
     private Animator thisAnim;
 
     // Start is called before the first frame update
@@ -45,7 +47,7 @@ public class PlayerController : MonoBehaviour
             self = this;
         }
 
-        audioSrc = GetComponent<AudioSource>();
+        footStep = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -72,14 +74,14 @@ public class PlayerController : MonoBehaviour
 
         if (isMoving)
         {
-            if (!audioSrc.isPlaying)
-                audioSrc.Play();
+            if (!footStep.isPlaying)
+                footStep.Play();
             thisAnim.SetBool("IsWalk", true);
         }
         else
         {
             thisAnim.SetBool("IsWalk", false);
-            audioSrc.Stop();
+            footStep.Stop();
         }
 
     }
@@ -123,6 +125,7 @@ public class PlayerController : MonoBehaviour
 
     public void CollectOperator(Operators op)
     {
+        pickupItem.Play();
         operatorInventory.Add(op);
         inventory.GetComponent<Inventory>().AddOperator(op);
 

@@ -5,12 +5,14 @@ using UnityEngine;
 public class Number_Collectible : MonoBehaviour
 {
     public int number;
+    AudioSource pickupItem;
     // Start is called before the first frame update
     void Start()
     {
         string s = GetComponent<SpriteRenderer>().sprite.name;
         s = s.Substring(s.Length - 1);
         number = int.Parse(s);
+        pickupItem = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -22,6 +24,7 @@ public class Number_Collectible : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            pickupItem.Play();
             GameObject.Find("Inventory").GetComponent<Inventory>().AddNumber(number);
             Destroy(this.gameObject);
         }
