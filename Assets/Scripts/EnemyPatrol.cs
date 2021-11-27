@@ -7,15 +7,19 @@ public class EnemyPatrol : MonoBehaviour
 {
     //always make startPosition up and/or right compared to endPosition
     public float speed;
-    public bool movingRight, movingDown;
+    public bool movingRight, movingDown,canMove;
     public Vector2 startPosition;
     public Vector2 endPosition;
     private Vector2 direction;
     private RaycastHit2D hit;
+    public string question;
+    public List<string> answers;
+    public int correct_answer;
 
     // Start is called before the first frame update
     void Start()
     {
+        canMove = true;
         movingRight = startPosition.x < endPosition.x;
         movingDown = startPosition.y > endPosition.y;
         transform.position = startPosition;
@@ -25,34 +29,36 @@ public class EnemyPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (movingDown)
+        if (canMove)
         {
-            Vector2 origin = new Vector2(transform.position.x - 1f, transform.position.y);
-            hit = Physics2D.Raycast(origin, Vector2.down, Math.Abs(endPosition.y - transform.position.y));
-        }
-        else
-        {
-
-            Vector2 origin = new Vector2(transform.position.x + 1f, transform.position.y);
-            hit = Physics2D.Raycast(origin, Vector2.up, Math.Abs(startPosition.y - transform.position.y));
-        }
-
-        if (hit.collider != null)
-        {
-            //something hit the raycast, so can't go straight up/down
-            MoveHorizontally();
-        }
-        else
-        {
-            //nothing hit the raycast, so move vertically first if needed
-            if ((movingDown && transform.position.y > endPosition.y) || (!movingDown && transform.position.y < startPosition.y))
+            if (movingDown)
             {
-                MoveVertically();
+                Vector2 origin = new Vector2(transform.position.x - 1f, transform.position.y);
+                hit = Physics2D.Raycast(origin, Vector2.down, Math.Abs(endPosition.y - transform.position.y));
             }
             else
             {
+
+                Vector2 origin = new Vector2(transform.position.x + 1f, transform.position.y);
+                hit = Physics2D.Raycast(origin, Vector2.up, Math.Abs(startPosition.y - transform.position.y));
+            }
+
+            if (hit.collider != null)
+            {
+                //something hit the raycast, so can't go straight up/down
                 MoveHorizontally();
+            }
+            else
+            {
+                //nothing hit the raycast, so move vertically first if needed
+                if ((movingDown && transform.position.y > endPosition.y) || (!movingDown && transform.position.y < startPosition.y))
+                {
+                    MoveVertically();
+                }
+                else
+                {
+                    MoveHorizontally();
+                }
             }
         }
 
@@ -122,10 +128,6 @@ public class EnemyPatrol : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Player")
-        {
-            Timer.instance.Penalty(5f);
-            Destroy(this.gameObject);
-        }
+
     }
 }

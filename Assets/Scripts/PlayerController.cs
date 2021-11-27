@@ -121,6 +121,15 @@ public class PlayerController : MonoBehaviour
             GameObject.Find("InputManager").GetComponent<InputManager>().DisplayHighlight();
             Debug.Log("Sage!");
         }
+        else if (collision.gameObject.tag == "Patrol")
+        {
+            collision.gameObject.GetComponent<EnemyPatrol>().canMove = false;
+            GameObject.Find("MandatoryQuestion").transform.GetChild(0).gameObject.SetActive(true);
+            GameObject.Find("MandatoryQuestion").GetComponent<MQController>().Display(collision.gameObject);
+            GameObject.Find("InputManager").GetComponent<InputManager>().SwitchIsPlayer(false);
+            GameObject.Find("InputManager").GetComponent<InputManager>().DisplayHighlight();
+            Debug.Log("Patrol!");
+        }
     }
 
     public void CollectOperator(Operators op)

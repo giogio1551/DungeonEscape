@@ -41,7 +41,31 @@ public class InputManager : MonoBehaviour
                     SelectButton(1);
             }
             if (Input.GetKeyDown("space"))
-                PressButton();
+            {
+                if (GameObject.Find("MandatoryQuestion").transform.GetChild(0).gameObject.activeSelf)
+                {
+                    GameObject.Find("MandatoryQuestion").GetComponent<MQController>().AnswerCorrect();
+                }
+                else if (GameObject.Find("Hint").transform.GetChild(0).gameObject.activeSelf)
+                {
+                    if (GameObject.Find("Hint").GetComponent<HintController>().answered)
+                    {
+                        GameObject.Find("Hint").GetComponent<HintController>().CloseHint();
+                    }
+                    else
+                    {
+
+                        GameObject.Find("Hint").GetComponent<HintController>().AnswerCorrect();
+                    }
+                    someIndex = 0;
+                    DisplayHighlight();
+                }
+                else
+                {
+                    PressButton();
+                }
+
+            }
         }
     }
     private void SelectButton(int direction)
@@ -72,55 +96,49 @@ public class InputManager : MonoBehaviour
     {
         effectedButtons[someIndex].transform.GetChild(1).gameObject.GetComponent<Button>().onClick.Invoke();
         effectedButtons[someIndex].transform.GetChild(0).gameObject.GetComponent<ButtonEffect>().SwitchLock();
-        if (GameObject.Find("Hint").GetComponent<HintController>().answered) 
+
+        if (effectedButtons[someIndex].transform.GetChild(0).gameObject.GetComponent<ButtonEffect>().isLocked)
         {
-            someIndex = 0;
-            DisplayHighlight();
+            GameObject g = locked;
+            locked = effectedButtons[someIndex];
+            if ((locked.layer == 6 || locked.layer == 7) && locked.name != "Confirm")
+            {
+                if (int_layer == 7)
+                {
+                    int_layer = 6;
+                    Image image = effectedButtons[someIndex].transform.GetChild(1).GetChild(0).GetChild(0).gameObject.GetComponent<Image>();
+                    if (g.layer == 6)
+                    {
+                        g.transform.GetChild(1).GetChild(1).GetComponent<Image>().sprite = image.sprite;
+                    }
+                    UnlockLayer();
+                    DisplayHighlight();
+                }
+                else
+                {
+                    int_layer = 7;
+                    UnlockLayer();
+                    DisplayHighlight();
+                }
+            }
         }
         else
         {
-            if (effectedButtons[someIndex].transform.GetChild(0).gameObject.GetComponent<ButtonEffect>().isLocked)
+            if (locked.layer == 6 || locked.layer == 7)
             {
-                GameObject g = locked;
-                locked = effectedButtons[someIndex];
-                if ((locked.layer == 6 || locked.layer == 7) && locked.name != "Confirm")
+                if (int_layer == 7)
                 {
-                    if (int_layer == 7)
-                    {
-                        int_layer = 6;
-                        Image image = effectedButtons[someIndex].transform.GetChild(1).GetChild(0).GetChild(0).gameObject.GetComponent<Image>();
-                        if (g.layer == 6)
-                        {
-                            g.transform.GetChild(1).GetChild(1).GetComponent<Image>().sprite = image.sprite;
-                        }
-                        UnlockLayer();
-                        DisplayHighlight();
-                    }
-                    else
-                    {
-                        int_layer = 7;
-                        UnlockLayer();
-                        DisplayHighlight();
-                    }
+                    int_layer = 6;
+                    DisplayHighlight();
+                }
+                else
+                {
+                    int_layer = 7;
                 }
             }
-            else
-            {
-                if (locked.layer == 6 || locked.layer == 7)
-                {
-                    if (int_layer == 7)
-                    {
-                        int_layer = 6;
-                        DisplayHighlight();
-                    }
-                    else
-                    {
-                        int_layer = 7;
-                    }
-                }
-                locked = null;
-            }
+            locked = null;
         }
+        
     }
     public void SwitchIsPlayer(bool b)
     {
