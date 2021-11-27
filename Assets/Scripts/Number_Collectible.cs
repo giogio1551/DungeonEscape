@@ -14,18 +14,11 @@ public class Number_Collectible : MonoBehaviour
         number = int.Parse(s);
         pickupItem = GetComponent<AudioSource>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
         {
-            pickupItem.Play();
-            GameObject.Find("Inventory").GetComponent<Inventory>().AddNumber(number);
+            PlayerController.self.CollectNumber(number);
             Destroy(this.gameObject);
         }
     }

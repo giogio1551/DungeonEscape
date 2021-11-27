@@ -131,4 +131,10 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void CollectNumber(int number)
+    {
+        pickupItem.Play();
+        inventory.GetComponent<Inventory>().AddNumber(number);
+    }
+
 }
