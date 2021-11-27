@@ -10,7 +10,7 @@ public class InputManager : MonoBehaviour
     public int someIndex;
     public bool isPlayer;
     public int int_layer;
-    AudioSource buttonSelectSound;
+    public AudioSource buttonSelectSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +37,7 @@ public class InputManager : MonoBehaviour
             {
                 if (Input.GetKeyDown("up") || Input.GetKeyDown("w") || Input.GetKeyDown("a") || Input.GetKeyDown("left"))
                     SelectButton(-1);
-                else if (Input.GetKeyDown("down") || Input.GetKeyDown("s") || Input.GetKeyDown("d")|| Input.GetKeyDown("right"))
+                else if (Input.GetKeyDown("down") || Input.GetKeyDown("s") || Input.GetKeyDown("d") || Input.GetKeyDown("right"))
                     SelectButton(1);
             }
             if (Input.GetKeyDown("space"))
@@ -72,7 +72,7 @@ public class InputManager : MonoBehaviour
     {
         effectedButtons[someIndex].transform.GetChild(1).gameObject.GetComponent<Button>().onClick.Invoke();
         effectedButtons[someIndex].transform.GetChild(0).gameObject.GetComponent<ButtonEffect>().SwitchLock();
-        if (GameObject.Find("Hint").GetComponent<HintController>().answered) 
+        if (GameObject.Find("Hint").GetComponent<HintController>().answered)
         {
             someIndex = 0;
             DisplayHighlight();
@@ -168,7 +168,8 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    public string GetButtonName() {
+    public string GetButtonName()
+    {
         return effectedButtons[someIndex].name;
     }
 }
