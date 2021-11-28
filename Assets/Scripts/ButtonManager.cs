@@ -66,4 +66,8 @@ public class ButtonManager : MonoBehaviour
     {
         GameObject.Find("Hint").GetComponent<HintController>().AnswerCorrect();
     }
+    public void AnswerMQ()
+    {
+        GameObject.Find("MandatoryQuestion").GetComponent<MQController>().AnswerCorrect();
+    }
 }
