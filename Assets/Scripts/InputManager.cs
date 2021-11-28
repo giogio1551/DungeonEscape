@@ -42,11 +42,11 @@ public class InputManager : MonoBehaviour
             }
             if (Input.GetKeyDown("space"))
             {
-                if (GameObject.Find("MandatoryQuestion").transform.GetChild(0).gameObject.activeSelf)
+                if (GameObject.Find("MandatoryQuestion")&& GameObject.Find("MandatoryQuestion").transform.GetChild(0).gameObject.activeSelf)
                 {
                     GameObject.Find("MandatoryQuestion").GetComponent<MQController>().AnswerCorrect();
                 }
-                else if (GameObject.Find("Hint").transform.GetChild(0).gameObject.activeSelf)
+                else if (GameObject.Find("Hint")&&GameObject.Find("Hint").transform.GetChild(0).gameObject.activeSelf)
                 {
                     if (GameObject.Find("Hint").GetComponent<HintController>().answered)
                     {
