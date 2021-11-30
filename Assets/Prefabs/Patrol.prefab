@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8808037296868243240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.19647947, y: 12.231317, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -109,7 +109,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.5}
   m_EdgeRadius: 0
 --- !u!114 &3912694017313214598
 MonoBehaviour:
@@ -126,8 +126,12 @@ MonoBehaviour:
   speed: 5
   movingRight: 0
   movingDown: 0
+  canMove: 0
   startPosition: {x: 4.5, y: -1}
   endPosition: {x: 12, y: -12}
+  question: 
+  answers: []
+  correct_answer: 0
 --- !u!95 &2598184210336771916
 Animator:
   serializedVersion: 3

@@ -507,7 +507,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -10}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &219924551
@@ -524,7 +524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healClip: {fileID: 8300000, guid: 086a65fb95965374ca0e3bea2e9a0986, type: 3}
   hurtClip: {fileID: 8300000, guid: 8f056f7f142b4504daa8b67835e0c0ba, type: 3}
-  time: 60
+  time: 75
 --- !u!114 &219924552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24164,6 +24164,10 @@ PrefabInstance:
       value: (35 - ( )) x 5 = 165
       objectReference: {fileID: 0}
     - target: {fileID: 3912694017313214598, guid: 70916506d90d3fb4bb9ea9788b25d8b7, type: 3}
+      propertyPath: endPosition.y
+      value: -12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3912694017313214598, guid: 70916506d90d3fb4bb9ea9788b25d8b7, type: 3}
       propertyPath: correct_answer
       value: 0
       objectReference: {fileID: 0}
@@ -24465,7 +24469,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3912694017313214598, guid: 70916506d90d3fb4bb9ea9788b25d8b7, type: 3}
       propertyPath: endPosition.y
-      value: 10
+      value: 9.5
       objectReference: {fileID: 0}
     - target: {fileID: 3912694017313214598, guid: 70916506d90d3fb4bb9ea9788b25d8b7, type: 3}
       propertyPath: correct_answer
@@ -24477,7 +24481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3912694017313214598, guid: 70916506d90d3fb4bb9ea9788b25d8b7, type: 3}
       propertyPath: startPosition.y
-      value: 10
+      value: 9.5
       objectReference: {fileID: 0}
     - target: {fileID: 3912694017313214598, guid: 70916506d90d3fb4bb9ea9788b25d8b7, type: 3}
       propertyPath: answers.Array.size
